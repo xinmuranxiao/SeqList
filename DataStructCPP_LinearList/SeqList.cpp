@@ -7,14 +7,14 @@ public:
 	
 	int getSize();
 	int getCapacity();
-	T& operator[](pos) {
-		if (idx < 0 || idx >= arr.size()) {
+	T& operator[](pos_) {
+		if (pos_ < 0 || pos_ >= arr.size()) {
 			throw std::out_of_range(
 				"下标越界！有效范围：0~" + std::to_string(arr.size() - 1) +
-				"，你输入的下标：" + std::to_string(idx)
+				"，你输入的下标：" + std::to_string(pos_)
 			);
 		}
-
+		return arr[pos_];
 	}
 	
 	~SeqList();
