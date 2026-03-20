@@ -53,8 +53,12 @@ void test03() {
 			std::cout << arr2[i] << " ";
 		}
 		std::cout << std::endl;
-		arr1.pop(1);
-		arr1.pop(0);
+		arr2.pop(1);
+		arr2.pop(-1);
+		for (int i = 0; i < arr2.size(); i++) {
+			std::cout << arr2[i] << " ";
+		}
+		std::cout << std::endl;
 	}
 	catch (const std::exception& e) {
 		std::cout << e.what() << std::endl;
@@ -65,5 +69,6 @@ void test03() {
 int main() {
 	test01();
 	test02();
+	test03();
 	return 0;
 }

@@ -23,11 +23,15 @@ public:
 
 	//构造
 	SeqList(const std::vector<T>& arr_ = {});
-	SeqList(const T* aRR_, const size_t num_);
+	SeqList(const T* arr_, const size_t num_);
 
 	//插入
 	void insert(const size_t &pos_, const std::vector<T>& arr_);
-	void insert(const size_t &pos_, const T* a, const size_t num_);
+	void insert(const size_t &pos_, const T* arr_, const size_t num_);
+
+	//尾插
+	void append(const std::vector<T>& arr_);
+	void append(const T* arr_, const size_t num_);
 
 	//获取长度
 	size_t size()const noexcept;
@@ -138,13 +142,28 @@ void SeqList<T>::insert(const size_t& pos_, const T* arr_, const size_t num_) {
 	arr.insert(arr.begin() + pos_, arr_, arr_ + num_);
 }
 
-//删除数组
+//尾差
+//vector
 template<class T>
-typename std::vector<T>::iterator SeqList<T>::pop(const size_t& pos_) {
-	checkValidIndex(pos_);
-	return arr.erase(arr.begin()+pos_);
+void SeqList<T>::append(const std::vector<T>& arr_) {
+	insert(arr.size(), arr_);
 }
 
+//c数组
+template<class T>
+void SeqList<T>::append(const T* arr_, const size_t num_) {
+	insert(arr.size(), arr_, num_);
+}
+
+//删除
+//单个
+template<class T>
+typename std::vector<T>::iterator SeqList<T>::pop(const size_t & pos_) {
+	checkValidIndex(pos_);
+	return arr.erase(arr.begin() + pos_);
+}
+
+//区间
 template<class T>
 typename std::vector<T>::iterator SeqList<T>::pop(const size_t& first,const size_t& last){
 	checkValidIndex(first);
