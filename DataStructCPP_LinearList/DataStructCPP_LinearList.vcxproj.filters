@@ -18,7 +18,7 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="SeqList.cpp">
+    <ClCompile Include="SeqList.h">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
